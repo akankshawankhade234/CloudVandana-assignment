@@ -1,0 +1,532 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="HandheldFriendly" content="true">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.js"></script>
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" ></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" ></script>
+       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script> 
+       <!-- JavaScript Bundle with Popper -->
+       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+            
+        <style>
+                    .icon {
+            padding: 10px;
+            background:black;
+            color:white;
+            min-width: 50px;
+            text-align: center;
+           }
+        </style>
+        <script>
+                $(document).ready(function(){
+                $("button").click(function(){
+                    $("table").toggle();
+                });
+                });
+               
+                var _department = $('select[name="deptname"]').val();
+                
+             function validation(){
+
+                var firstName = document.getElementById('fname').value;
+                var ls = document.getElementById('sname').value;
+                var mobileNumber = document.getElementById('contactnumber').value;
+                var dp = document.getElementById('office').value;
+                var emails = document.getElementById('e1').value;
+                var mobileNumber = document.getElementById('contactnumber').value;
+                var user = document.getElementById('uname').value;
+                var pw = document.getElementById('pass').value;
+                // var gd = document.getElementById('g1').value;
+                var m = document.getElementById('m');
+                var f = document.getElementById('f');
+                var v1 = document.getElementById('vehicle1').checked;
+                var v2 = document.getElementById('vehicle2').checked;
+                var v3 = document.getElementById('vehicle3').checked;
+                
+             //first name validation
+             if(firstName == ""){
+                alert(" ** Please fill the first name field");
+                    // document.getElementById('st1').innerHTML =" ** Please fill the first name field";
+                    return false;
+                }
+              //first name validation
+             if(ls == ""){
+                alert(" ** Please fill the last name field");
+                    // document.getElementById('ls1').innerHTML =" ** Please fill the last name field";
+                    return false;
+                }    
+            //  email validation
+            if(emails == ""){
+                alert(" ** Please fill the email  field");
+                    // document.getElementById('ems').innerHTML =" ** Please fill the email  field";
+                    return false;
+                }
+                if(emails.indexOf('@') <= 0 ){
+                    alert("  ** @ Invalid Position");
+                    // document.getElementById('ems').innerHTML =" ** @ Invalid Position";
+                    return false;
+                }
+
+                if((emails.charAt(emails.length-4)!='.') && (emails.charAt(emails.length-3)!='.')){
+                    alert(" ** . Invalid Position");
+                    // document.getElementById('ems').innerHTML =" ** . Invalid Position";
+                    return false;
+                }
+            //  contact number validation
+            if(mobileNumber == ""){
+                alert(" ** Please fill the mobile NUmber field");
+                    // document.getElementById('contactnumbers').innerHTML =" ** Please fill the mobile NUmber field";
+                    return false;
+                }
+                if(isNaN(mobileNumber)){
+                    alert(" **  user must write digits only not characters");
+                    document.getElementById('contactnumbers').innerHTML =" ** user must write digits only not characters";
+                    return false;
+                }
+                if(mobileNumber.length!=10){
+                    alert(" ** Mobile Number must be 10 digits only");
+                    // document.getElementById('contactnumbers').innerHTML =" ** Mobile Number must be 10 digits only";
+                    return false;
+                }
+                if((mobileNumber.charAt(0)!=9) && (mobileNumber.charAt(0)!=8) && (mobileNumber.charAt(0)!=7)){
+                    alert(" ** Mobile Number must be start with 9 ,8 ,7");
+                    // document.getElementById('contactnumbers').innerHTML =" ** Mobile Number must be 10 digits only";
+                    return false;
+                }
+                // if(mobileNumber.length!=10){
+                //     alert(" ** Mobile Number must be 10 digits only");
+                //     // document.getElementById('contactnumbers').innerHTML =" ** Mobile Number must be 10 digits only";
+                //     return false;
+                // }
+                //departement validation
+                if(dp == "select"){
+                    alert("  ** Please select department");
+                    // document.getElementById('do1').innerHTML =" ** Please fill the last name field";
+                    return false;
+                }  
+            //  username validation
+               if(user == ""){
+                    alert("** Please enter profession");
+                    // document.getElementById('usernames').innerHTML =" ** Please fill the username field";
+                    return false;
+                }
+                // if((user.length <= 2) || (user.length > 10)) {
+                //     alert(" ** Username lenght must be between 2 and 10");
+                    
+                //     // document.getElementById('usernames').innerHTML =" ** Username lenght must be between 2 and 10";
+                //     return false;   
+                // }
+                // if(!isNaN(user)){
+                //     alert(" ** only characters are allowed");
+                //     // document.getElementById('usernames').innerHTML =" ** only characters are allowed";
+                //     return false;
+                // }
+            //  password validation
+               if(pw == ""){
+                   alert(" ** Please fill the date of birth field");
+                    // document.getElementById('passwords').innerHTML =" ** Please fill the password field";
+                    return false;
+                }
+                // if((pw.length <= 5) || (pw.length > 10)) {
+                //     alert(" ** Passwords lenght must be between  5 and 10");
+                //     // document.getElementById('passwords').innerHTML =" ** Passwords lenght must be between  5 and 10";
+                //     return false;   
+                // }
+                // //gender validation
+                
+                // if ( (m.checked == false ) && (f.checked == false ) )
+                // {
+                //     alert(" **please choose gender field");
+                //     return false;
+                // }
+                // // checkbox validation
+                // if(v1==false && v2 == false && v3==false){
+                //     alert('please select hobbies');
+                //     // document.getElementById('c1').innerHTML =" **please select hobbies";
+                //     return false;
+                // }
+                
+            }
+            var _gender = $('input[type=radio][name="optradio"]:checked').val();
+
+
+            // table append jquery (edit,delete button).
+            $ (function(){
+            $('#btn-add').click(function(){
+                var _name = $('input[name="name"]').val();
+                var _lastname = $('input[name="Lname"]').val();
+                var _m = $('input[name="mail"]').val();
+                var _contact = $('input[name="contactno"]').val();
+                var _department = $('select[name="deptname"]').val();
+                var _un = $('input[name="username"]').val();
+                var _ps= $('input[type=date][name="password"]').val();
+                // var _gender = $('select[name="g"]').val();
+                var _gender = $('input[type=radio][name="optradio"]:checked').val();
+                // var _hobbies = $('input[type=checkbox][name="vehicle"]').val()
+                
+                var favorite = [];
+                $.each($("input[name='vehicle']:checked"), function(){
+                    favorite.push($(this).val());
+                });
+               if(_department!=="select"){
+                var _tr='<tr data-name="'+_name+'" data-lastname="'+_lastname+'" data-email="'+_m+'" data-contactno="'+_contact+'" data-departement="'+_department+'"  data-username="'+_un+'" data-passwors="'+_ps+'" data-gender="'+_gender+'" data-hobbie="'+favorite.join(", ")+'"><td>'+_name+'</td> <td>'+_lastname+'</td> <td>'+_m+'</td> <td>'+_contact+'</td>   <td>'+_department+'</td> <td>'+_un+'</td>  <td>'+_ps+'</td>  <td>'+_gender+'</td> <td>'+favorite.join(", ")+'</td><td><button class="btn-edit" type="button">Edit</button><button class="remove" type="button">Delete</button></td></tr>';
+                $('tbody').append(_tr);
+               }
+            
+                //   edit
+
+                    $('body').on('click',".btn-edit",function() {
+                    var name=$(this).parents('tr').attr('data-name');
+                    var ln=$(this).parents('tr').attr('data-lastname');
+                    var emails=$(this).parents('tr').attr('data-email');
+                    var contactnumbers=$(this).parents('tr').attr('data-contactno');
+                    var departments=$(this).parents('tr').attr('data-departement');
+                    var usernames=$(this).parents('tr').attr('data-username');
+                    var passwords=$(this).parents('tr').attr('data-passwors');
+                    var genders=$(this).parents('tr').attr('data-gender');
+                    var checkboxs=$(this).parents('tr').attr('data-hobbie');
+                    var hobbies = checkboxs.split(', ')
+                    console.log(checkboxs)
+                    console.log(hobbies)
+                   
+                    $(this).parents('tr').find('td:eq(0)').html("<input name='edit_firstname' value='"+name+"'>");
+                    $(this).parents('tr').find('td:eq(1)').html("<input name='edit_lastname' value='"+ln+"'>");
+                    $(this).parents('tr').find('td:eq(2)').html("<input name='edit_emails' value='"+emails+"'>");
+                    $(this).parents('tr').find('td:eq(3)').html("<input name='edit_contactnumber' value='"+contactnumbers+"'>");
+                    $(this).parents('tr').find('td:eq(4)').html("<select name='edit_dept' value='"+departments+"' ><option></option><option id='d1' >Departement1 / Office</option><option id='d2' >Departement2 / Office</option><option  id='d3' >Departement3 / Office</option> </select>");
+                    $(this).parents('tr').find('td:eq(5)').html("<input name='edit_username' value='"+usernames+"'>");
+                    $(this).parents('tr').find('td:eq(6)').html("<input name='edit_password' value='"+passwords+"'>");
+                    $(this).parents('tr').find('td:eq(7)').html("<input type=radio value='female' id='femaleCheckbox'  name='edit_gender'>Female<input type=radio value='male' id='maleCheckbox'  name='edit_gender'> Male");
+                    
+                    $(this).parents('tr').find('td:eq(8)').html("<input type=checkbox name='edit_checkbox' id='sportsCheckbox'  value='sports'>Sports<input type=checkbox name='edit_checkbox' id='trekCheckbox' value='trek'>Trek<br><input type=checkbox id='tourCheckbox' name='edit_checkbox' value='tour'>Tour");
+                    
+
+                      $(this).parents('tr').find('td:eq(9)').prepend("<button type='button' class=' btn-update'>Update</button>");
+                      $(this).hide();
+                      if(departments==='departement'){
+                          console.log('departement')
+                          $('#d1').attr("checked",true);
+                      }else if(departments==='departement 1'){
+                          $('#d2').attr("checked",true);
+                      }else if(departments==='departement 2'){
+                          $('#d3').attr("checked",true);
+                      }
+                //     $("select.choice").change(function(){
+                //     var selectedChoice = $(this).children("option:selected").val();
+                //     alert("You have selected the country - " + selectedChoice);
+                // });
+
+
+                      if(genders==='FEMALE'){
+                        console.log("female")
+                        $("#femaleCheckbox").attr("checked", true);
+                    }else if(genders==='MALE'){
+                        console.log("male")
+                        $("#maleCheckbox").attr("checked", true);
+                    }
+
+                    $.each(hobbies , function(index, val) { 
+                        console.log(index, val);
+                        if(val==="SPORTS"){
+                            $("#sportsCheckbox").attr("checked", true);
+                        }
+                        if(val==="TREK"){
+                            $("#trekCheckbox").attr("checked", true);
+                        }
+                        if(val==="TOUR"){
+                            $("#tourCheckbox").attr("checked", true);
+                        }
+                        });
+
+                    });
+
+                 //update
+                    $('body').on('click','.btn-update',function() {
+                    var name=$(this).parents('tr').find("input[name='edit_firstname']").val();
+                    var ln=$(this).parents('tr').find("input[name='edit_lastname']").val();
+                    var emails=$(this).parents('tr').find("input[name='edit_emails']").val();
+                    var contactnumbers=$(this).parents('tr').find("input[name='edit_contactnumber']").val();
+                    var departments=$(this).parents('tr').find("select[name='edit_dept']").val();
+                    var usernames=$(this).parents('tr').find("input[name='edit_username']").val();
+                    var passwords=$(this).parents('tr').find("input[name='edit_password']").val();
+                    var genders=$(this).parents('tr').find("input[type=radio][name='edit_gender']:checked").val();
+                    var checkboxs=$(this).parents('tr').find("input[type=checkbox][name='edit_checkbox']:checked").val();
+                    
+
+
+                    $(this).parents('tr').find('td:eq(0)').text(name);
+                    $(this).parents('tr').find('td:eq(1)').text(ln);
+                    $(this).parents('tr').find('td:eq(2)').text(emails);
+                    $(this).parents('tr').find('td:eq(3)').text(contactnumbers);
+                    $(this).parents('tr').find('td:eq(4)').text(departments);
+                    $(this).parents('tr').find('td:eq(5)').text(usernames);
+                    $(this).parents('tr').find('td:eq(6)').text(passwords);
+                    $(this).parents('tr').find('td:eq(7)').text(genders);
+                    $(this).parents('tr').find('td:eq(8)').text(checkboxs);
+
+                    $(this).parents('tr').attr('data-name',name);
+                    $(this).parents('tr').attr('data-lastname',ln);
+                    $(this).parents('tr').attr('data-email',emails);
+                    $(this).parents('tr').attr('data-contactno',contactnumbers);
+                    $(this).parents('tr').attr('data-departement',departments);
+                    $(this).parents('tr').attr('data-username',usernames);
+                    $(this).parents('tr').attr('data-passwors',passwords);
+                    $(this).parents('tr').attr('data-gender',genders);
+                    $(this).parents('tr').attr('data-hobbie',checkboxs);
+
+                    $(this).parents('tr').find('.btn-edit').show();
+                   
+                    $(this).parent("tr").find(".btn-update").remove();
+
+                   
+                    
+
+
+                    });
+
+                // Delete
+                $(document).on('click', '.remove', function() {
+                    $(this).parents('tr').remove();
+                    
+                    // if ($(this).find('tbody tr').length<=1) {
+                    //     $(this).parent('table').hide();
+                    // } else {
+                    //     $(this).parent().show();
+                    // }
+                    if ($("#employeeList > tbody > tr" ) .length == null || $("#employeeList> tbody > tr").length == 0){
+                                $("#employeeList").hide();
+                            }
+                          });
+                 
+                }); 
+            });  
+
+
+          
+            </script>
+
+    </head>
+    <body>
+     <div class="container" style="text-align: center;">
+         <h2 style="text-align: center;">Survey Form</h2>
+        <form name="registration"  id="myform" class="d-flex justify-content-center mb-3" >
+        <div class="card" style="background-color:#AFFFE1; opacity: 0.9;width: 50rem; text-align: center;"><br>
+           
+
+            <!-- first name -->
+            
+            
+            <div class="form-group row"> 
+                <label  style="color:black; text-align: right; font-size:125%;"  class="col-sm-2 col-form-label"><b>First Name</b></label>
+                
+                <div class="col-sm-10">
+                    <div class="d-flex justify-content-center">
+                     <div class="input-group mb-3" style="width: 500px; margin-top: 15px;">
+                        <div class="input-group-prepend">
+                            <i class="fa fa-user icon"></i>
+                        </div>
+                        <input type="text" class="form-control  "  name="name"placeholder="first name"  id="fname" aria-describedby="basic-addon1" required>
+                     </div>
+                     </div>
+                      
+                    
+                 </div>
+            </div>
+            <br>
+              <!-- last name -->
+              <div class="form-group row">
+                <label for="staticEmail"  style="color:black;text-align: right; font-size:125%" class="col-sm-2 col-form-label"><b>Last Name</b></label>
+                <div class="col-sm-10">
+                    <div class="d-flex justify-content-center">
+                    <div class="input-group mb-3" style="width: 500px; margin-top: 15px; ">
+                        <div class="input-group-prepend">
+                            <i class="fa fa-user icon"></i>
+                        </div>
+                        <input type="text" class="form-control " name="Lname" placeholder="last name"   id="sname" aria-describedby="basic-addon1"required>
+                        <br>
+                        <span id="ls1" class="text-danger font-weight-bold"> </span>
+                        
+                      </div> 
+                    </div> 
+                </div>
+              </div><br>
+              <!-- email -->
+              <div class="form-group row">
+                <label for="staticEmail" style="color:black;text-align: right; font-size:125%;" class="col-sm-2 col-form-label"><b>Email</b></label>
+                <div class="col-sm-10">
+                <div class="d-flex justify-content-center">
+                    <div class="input-group mb-3"style="width: 500px; margin-top: 15px; ">
+                        <div class="input-group-prepend">
+                            <i class="fa fa-envelope icon"></i>
+                        </div>
+                        <input type="email" class="form-control " name="mail" placeholder="email" id="e1" aria-describedby="basic-addon1" required>
+                        
+                        <span id="ems" class="text-danger font-weight-bold"> </span>
+                      </div>
+                    </div>
+                </div>
+              </div><br>
+              <!-- contact -->
+              <div class="form-group row">
+                <label for="staticEmail"style="color:black;text-align: right; font-size:125%;" class="col-sm-2 col-form-label"><b>Contact No.</b></label>
+                <div class="col-sm-10">
+                    <div class="d-flex justify-content-center">
+                    <div class="input-group mb-3"style="width: 500px; margin-top: 15px; ">
+                        <div class="input-group-prepend">
+                            <i class="fa fa-phone icon" aria-hidden="true"></i>
+                        </div>
+                        <input type="number" class="form-control "  name="contactno"placeholder="contact no."  id="contactnumber" aria-describedby="basic-addon1"required>
+
+                        <span id="contactnumbers" class="text-danger font-weight-bold"> </span>
+                        
+                      </div>
+                    </div>
+                    <!-- <input type="number" class="form-control" id="contactnumber" placeholder="contact no."> -->
+                </div>
+              </div><br>
+              <!-- country -->
+              <div class="form-group row">
+                <label for="staticEmail"style="color:black; text-align: right;font-size:125%" class="col-sm-2 col-form-label"><b>Country</b></label>
+                <div class="col-sm-10">
+                    <div class="d-flex justify-content-center">
+                    <div class="input-group mb-3"style="width: 500px; margin-top: 15px; ">
+                        <div class="input-group-prepend">
+                            <i class="fa fa-list icon" ></i>
+                        </div>
+                        <select id="office" class="form-control choice " name="deptname"  placeholder="country"required >
+                            <option value="select">--Select--</option>
+                            <option value="India" >India</option>
+                            <option value="Australia" >Australia</option>
+                            <option value="Srilanka" >Srilanka</option>
+                            <!-- <span id="do1" class="text-danger font-weight-bold"> </span> -->
+                        </select>
+                        
+                    </div>
+                </div>
+                      </div>
+                    
+                
+                
+                
+              </div><br>
+              <!-- Profession -->
+              <div class="form-group row">
+                <label for="staticEmail" style="color:black;text-align: right;font-size:125%" class="col-sm-2 col-form-label"><b>Profession</b></label>
+                <div class="col-sm-10">
+                    <div class="d-flex justify-content-center">
+                    <div class="input-group mb-3"style="width: 500px; margin-top: 15px; ">
+                        <div class="input-group-prepend">
+                            <i class="fa fa-user icon"></i>
+                        </div>
+                        <input type="text" class="form-control required" name="username"  placeholder="profession" id="uname" aria-describedby="basic-addon1" required>
+                        <span id="usernames" class="text-danger font-weight-bold"> </span>
+                    </div>
+                        
+                      </div>
+                    
+                    <!-- <input type="text" class="form-control" id="uname" placeholder="username"> -->
+                </div>
+              </div><br>
+              <!-- date of birth -->
+              <div class="form-group row">
+                <label for="inputPassword" style="color:black;text-align: right;font-size:125%" class="col-sm-2 col-form-label"><b>Date of Birth</b></label>
+                <div class="col-sm-10">
+                    <div class="d-flex justify-content-center">
+                    <div class="input-group mb-3"style="width: 500px; margin-top: 15px; ">
+                        <div class="input-group-prepend">
+                            <i class="fa fa-user icon"></i>
+                        </div>
+                        <input type="date" class="form-control " name="password"  placeholder="dob" id="pass" aria-describedby="basic-addon1"required >
+                        <span id="passwords" class="text-danger font-weight-bold"> </span>
+                      </div>
+                  <!-- <input type="password" class="form-control" id="pass" placeholder="Password"> -->
+                </div>
+            </div>
+              </div><br>
+              <!-- gender -->
+              <div class="form-group row">
+                <label for="staticEmail"style="color:black;text-align: right;font-size:125%"  class="col-sm-2 col-form-label"><b>Gender</b></label>
+                <div class="col-sm-10">
+                    <div class="d-flex justify-content-center">
+                    <div class="input-group mb-3" style="width: 500px; margin-top: 15px; ">
+                        <div class="input-group-prepend">
+                            
+                        </div>
+                        <label class="form-check-label" id="gder">
+                            <input type="radio" class="form-check-input " id="m" name="optradio" value="MALE" required  ><b>Male</b>&nbsp;&nbsp;
+                            </label>
+                            <label class="form-check-label" id="gder">
+                                <input type="radio" class="form-check-input " id="f" name="optradio" value="FEMALE" required ><b>Female</b>
+                            </label>
+                            <span id="g2" class="text-danger font-weight-bold"> </span>
+                      </div>
+                    </div>
+                    
+                </div>
+              </div><br>
+              <!-- hobbies -->
+              <div class="form-group row">
+                <label for="staticEmail"style="color:black;text-align: right; font-size:125%;" class="col-sm-2 col-form-label" ><b>Hobbies</b></label>
+                <div class="col-sm-10 required" >
+                    <div class="d-flex justify-content-center">
+                    <div class="input-group mb-3" style="width: 500px; margin-top: 15px; ">
+                    <input type="checkbox" id="vehicle1" name="vehicle" value="SPORTS"required>
+                    <label for="vehicle1"><b>Sports</b> </label>&nbsp;&nbsp;
+                    <input type="checkbox" id="vehicle2" name="vehicle" value="TREK"required>
+                    <label for="vehicle2"><b>Trek</b> </label>&nbsp;&nbsp;
+                    <input type="checkbox" id="vehicle3" name="vehicle" value="TOUR"required>
+                    <label for="vehicle3"><b>Tour</b></label>
+                    <span id="c1" class="text-danger font-weight-bold"> </span>
+                    </div>
+                    </div>
+                </div>
+              </div><br>
+             <!-- button -->
+              <!-- <button type="submit" style="width: 100%;" class="btn btn-primary" id="btn-add">Submit</button> -->
+              <button  type ="button" style="width: 25%; margin: auto ;" onclick="return validation()" class="btn btn-info" id="btn-add" ><b>Submit</b></button>
+              <br>
+              <button  type ="button" style="width: 25%; margin: auto ;" onclick="this.form.reset()" class="btn btn-info" id="btn-add" ><b>Reset</b></button>
+
+         </div>
+        </form>
+     </div>
+     <div class="container">
+            <table  style="display:none"  class="table"  id="employeeList">
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Contact</th>
+                        <th>Country</th>
+                        <th>Profession</th>
+                        <th>Date of Birth</th>
+                        <th>Gender</th>
+                        <th>Hobbies</th>
+                        <th>Action </th>
+                        
+                        
+                        
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+     </div>
+    </body>
+</html>
